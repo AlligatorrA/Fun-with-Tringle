@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Calculate Hypotenuse</title>
+</head>
+
+<body>
+    <div class="main3">
+         <button class="btn2"> <a href="./index.html">Go Back</a> </button>
+        <div class="triangle">
+        a = <input class="aSide" type="number">
+        b = <input class="bSide" type="number">
+    </div>
+        <button class="result">Calculate</button>
+        <div class="output"></div>
+
+    </div>
+    <script>
+        const aSide = document.querySelector(".aSide");
+        const bSide = document.querySelector(".bSide");
+        const result = document.querySelector(".result");
+        const out = document.querySelector(".output");
+
+        result.addEventListener("click", squaAll)
+
+        out.innerHTML = "c = &#8730 a<sup>2</sup> + b<sup>2</sup> "
+
+        function squaAll() {
+            let a = Number(aSide.value);
+            let b = Number(bSide.value);
+            let c = Math.sqrt((a * a) + (b * b))
+            out.innerHTML = `The value of hypotenuse: ${c}`
+        }
+    </script>
+</body>
+
+</html>

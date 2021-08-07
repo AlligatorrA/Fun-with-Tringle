@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Quiz</title>
+</head>
+
+<body class="body2">
+    <button class="btn2"> <a href="./index.html">Go Back</a> </button>
+    <label for="quiz"> Lets take Quiz</label>
+    <div class="name">
+        <Label>You Name Mate </Label>
+        <input class="userName" type="text" placeholder="Enter Your Name">
+        <button class="play">Lets play</button>
+    </div>
+    <div class="questionSection">
+        <form class="Questionform">
+            <div class="questionOne">the angle in 90&#176, 70&#176 and 20&#176 is it a right angle triangle<br>
+                <label class="option"><input type="radio" name="question1" id="correct1" />yes</label>
+                <label class="option"><input type="radio" name="question1" />No</label>
+
+            </div>
+            <div class="questionTwo">Triangles having two sides equal is<br>
+                <label class="option"><input type="radio" name="question2" />Scalen Triangle</label>
+                <label class="option"><input type="radio" name="question2" id="correct2" />Isoscalas Triangle</label>
+                <label class="option"><input type="radio" name="question2" />Equilateral Triangle</label>
+
+            </div>
+            <div class="questionThree">In &#9651ABC if sec&#952 = 25/7 value of tan&#952 is<br>
+                <label class="option"><input type="radio" name="question3" />25/22</label>
+                <label class="option"><input type="radio" name="question3" />7/22</label>
+                <label class="option"><input type="radio" name="question3" id="correct3" />25/24</label>
+            </div>
+            <div class="questionFour">In &#9651ABC sides are 8cm, 15cm, 17cm. is it a right angle triangle<br>
+
+                <label class="option"><input type="radio" name="question4" id="correct4" />yes</label>
+                <label class="option"><input type="radio" name="question4" />No</label>
+            </div>
+            <div class="questionFive">Area of two Similat &#9651ABC and &#9651PQR is in ration 9:16 and BC = 4.5 than
+                value of QR is<br>
+
+                <label class="option"><input type="radio" name="question5" />5</label>
+                <label class="option"><input type="radio" name="question5" id="correct5" />6</label>
+                <label class="option"><input type="radio" name="question5" />13</label>
+            </div>
+            <div class="questionSix">In &#9651ABC the angles are 56&#176, 44&#176 and 70&#176 it is obtuse angled
+                triangle<br>
+                <label class="option"><input type="radio" name="question6" />True</label>
+                <label class="option"><input type="radio" name="question6" id="correct6" />False</label>
+
+            </div>
+
+        </form>
+        <button class="submit">submit</button>
+
+
+
+
+    </div>
+
+    <div class="outcome">
+
+    </div>
+
+    <script>
+        // to display and hide the Name Division
+        const dispName = document.querySelector(".name");
+        const name = document.querySelector(".userName");
+        const playbtn = document.querySelector(".play");
+        const dispQuest = document.querySelector(".questionSection");
+        const outcome = document.querySelector(".outcome");
+        const submitBtn = document.querySelector(".submit");
+
+
+
+        dispQuest.style.display = "none"
+
+
+        playbtn.addEventListener("click", displayQuest)
+
+        function displayQuest() {
+            dispName.style.display = "none";
+            if (name.value === "") {
+                outcome.innerHTML = `Please Enter your name <br /> <button class="entername"><a href="./index5.html">Try again</a></button>`
+            }
+            else {
+                dispQuest.style.display = "block";
+            }
+        }
+
+
+        //                     for questions
+
+        var score = 0;
+        const checked1 = document.querySelector("#correct1")
+        const checked2 = document.querySelector("#correct2")
+        const checked3 = document.querySelector("#correct3")
+        const checked4 = document.querySelector("#correct4")
+        const checked5 = document.querySelector("#correct5")
+        const checked6 = document.querySelector("#correct6")
+        const questionOne = document.querySelector(".questionOne");
+        const questionTwo = document.querySelector(".questionTwo");
+        const questionThree = document.querySelector(".questionThree");
+        const questionFour = document.querySelector(".questionFour");
+        const questionFive = document.querySelector(".questionFive");
+        const questionSix = document.querySelector(".questionSix");
+
+
+
+
+
+
+
+        submitBtn.addEventListener("click", submitFunc)
+
+        function submitFunc(e) {
+            e.preventDefault()
+            if (checked1.checked) {
+                score = score + 10;
+
+                questionOne.style.backgroundColor = 'green';
+            } else {
+
+                questionOne.style.backgroundColor = "red";
+
+
+            }
+            if (checked2.checked) {
+                questionTwo.style.backgroundColor = "green";
+                score = score + 10;
+
+            } else {
+
+                questionTwo.style.backgroundColor = "red";
+            }
+            if (checked3.checked) {
+                questionThree.style.backgroundColor = "green";
+                score = score + 10;
+
+            } else {
+
+                questionThree.style.backgroundColor = "red";
+            }
+            if (checked4.checked) {
+                questionFour.style.backgroundColor = "green";
+                score = score + 10;
+
+            } else {
+
+                questionFour.style.backgroundColor = "red";
+            }
+            if (checked5.checked) {
+                score = score + 10;
+                questionFive.style.backgroundColor = "green";
+            } else {
+
+                questionFive.style.backgroundColor = "red";
+            }
+            if (checked6.checked) {
+                score = score + 10;
+                questionSix.style.backgroundColor = "green";
+            } else {
+
+                questionSix.style.backgroundColor = "red";
+            }
+            outcome.innerHTML = `Hello ${name.value} your score is ${score} `
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>angles of triangle</title>
+</head>
+
+<body>
+  <div class="main2">
+    <button class="btn2">  <a href="./index.html">Go Back</a></button>
+    <label for="anglesSum">Enter Your angle and i'll tell you if it makes triangle or not</label>
+    <div class="input"> 
+    
+    <input class="angle1st" type="number"><br>
+    <input class="angle2nd" type="number"><br>
+    <input class="angle3rd" type="number"><br>
+  </div>
+    <button class="check">Check</button>
+    <div class="output"></div>
+  </div>
+  <script>
+    const angOne = document.querySelector(".angle1st");
+    const angTwo = document.querySelector(".angle2nd");
+    const angThree = document.querySelector(".angle3rd");
+    const check = document.querySelector(".check");
+    const out = document.querySelector(".output");
+
+    out.innerHTML = `Check Weather it makes a perfect triangle or not`;
+
+    check.addEventListener("click", sumAll)
+
+    function sumAll(e) {
+      e.preventDefault()
+      let a = Number(angOne.value);
+      let b = Number(angTwo.value);
+      let c = Number(angThree.value);
+      let sum = Number(a + b + c);
+
+
+      if (sum === 180) {
+        out.innerHTML = `Yes It makes Perfect Triangle, mate! `;
+     }
+      else {
+        out.innerHTML ="Sorry! Angles you have Entered can't make a Triangle"
+      }
+    }
+
+  </script>
+</body>
+
+</html>

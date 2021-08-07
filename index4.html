@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Area of Triangle</title>
+</head>
+
+<body class="body">
+    <div class="main4">
+
+        <button class="btn2"> <a href="./index.html">Go Back</a></button>
+        <h1>Calculate Area</h1>
+        <p>Select option How you want to Calculate</p>
+        <hr>
+        <div class="links">
+            <a class="link1" href="#baseHeight">by base and length</a><br>
+            <a class="link2" href="#side">by side of Triangle</a><br>
+            <a class="link3" href="#angle">by 2 sides and angle</a><br>
+        </div>
+
+
+
+        <div class="allLinks">
+            <div id="baseHeight">
+
+                <label class="label">for base and height</label>
+                base= <input type="number" class="base">
+                height= <input type="number" class="height">
+                <button class="calculate">Calculate</button>
+                <div class="output"></div>
+
+                <script>
+                    const base = document.querySelector(".base");
+                    const height = document.querySelector(".height");
+                    const calcBtn = document.querySelector(".calculate");
+                    const output = document.querySelector(".output");
+
+                    output.innerHTML = ` Area = 1/2xBxH`
+
+                    calcBtn.addEventListener("click", areaBaseHeight)
+
+                    function areaBaseHeight() {
+                        let a = Number(base.value);
+                        let b = Number(height.value);
+                        let c = 1 / 2 * (a * b);
+                        output.innerHTML = ` Your area is ${c}`
+                    }
+                </script>
+
+
+            </div>
+            <div id="side">
+
+
+                <label class="label" for="">for 3 sides</label>
+                 a= <input class="side1" type="number">
+                b= <input class="side2" type="number">
+                c= <input class="side3" type="number">
+                <button class="calcSide">Calclulate</button>
+                <div class="output1">Area =&#8730S(S-a)(S-b)(S-c) </div>
+
+                <script>
+                    const side1 = document.querySelector(".side1");
+                    const side2 = document.querySelector(".side2");
+                    const side3 = document.querySelector(".side3");
+                    const calcSide = document.querySelector(".calcSide");
+                    const output1 = document.querySelector(".output1");
+
+                    calcSide.addEventListener("click", sideBySide)
+
+                    function sideBySide() {
+                        let e = Number(side1.value);
+                        let f = Number(side2.value);
+                        let g = Number(side3.value);
+                        let s = (e + f + g) / 2;
+                        let h = s * (s - e) * (s - f) * (s - g);
+
+                        let i = Math.sqrt(h)
+                        output1.innerHTML = ` Your area is ${i}`
+                    }
+                </script>
+
+            </div>
+            <div id="angle">
+
+                <label class="label">for 2 sides and 1 angle</label>
+                a= <input class="sideb" type="number">
+                b= <input class="sidec" type="number">
+                &#8736a&#176= <input class="ang3" type="number">
+                <button class="angArea">Calclulate</button>
+                <div class="output2">Area = 1/2xBxCxSin(&#952&#176)</div>
+
+                <script>
+                    const sideb = document.querySelector(".sideb");
+                    const sidec = document.querySelector(".sidec");
+                    const ang3 = document.querySelector(".ang3");
+                    const angArea = document.querySelector(".angArea");
+                    const output2 = document.querySelector(".output2");
+
+                    angArea.addEventListener("click", areabyAngle)
+
+                    function areabyAngle() {
+                        let j = Number(sideb.value);
+                        let k = Number(sidec.value);
+                        let l = Math.sin(ang3.value * Math.PI / 180);
+                        let m = (j + k + l) / 2
+                        output2.innerHTML = ` Your area is ${m}`
+                        
+                    }
+                </script>
+
+
+                <!--              For Hide and Display the containers          -->
+                <script>
+                    const link1st = document.querySelector(".link1");
+                    const link2nd = document.querySelector(".link2");
+                    const link3rd = document.querySelector(".link3");
+                    const disp1 = document.querySelector("#baseHeight");
+                    const disp2 = document.querySelector("#side");
+                    const disp3 = document.querySelector("#angle");
+
+
+
+                    disp1.style.display = "none";
+                    disp2.style.display = "none";
+                    disp3.style.display = "none";
+
+
+                    // let link1st = false
+                    link1st.addEventListener("click", display1st)
+                    function display1st() {
+                        disp1.style.display = "block";
+                    }
+
+
+                    link2nd.addEventListener("click", display2nd)
+                    function display2nd() {
+                        disp2.style.display = "block";
+                    }
+
+
+                    link3rd.addEventListener("click", display3rd)
+                    function display3rd() {
+                        disp3.style.display = "block";
+                    }
+
+                    
+
+                </script>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
